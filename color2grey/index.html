@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>同灰度值颜色工具</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>同灰度颜色值转换/title>
 <style>
 #colordiv{
 width:600px;
@@ -39,7 +39,7 @@ function doget(type) {
 	if (type=="grey") {
 		greynum = parseInt(document.getElementById("greyinput").value);
 		if (greynum<=0 || greynum>=250) {
-			alert("值非法");
+			alert("灰度值走出范围");
 			return false;
 		}
 		for(i=0;i<document.getElementById("colornum").value;i++)
@@ -59,7 +59,7 @@ function doget(type) {
 			greynum = parseInt(0.299*colorpart[0] + 0.587*colorpart[1] + 0.114*colorpart[2]);
 		}
 		else {
-			alert("颜色值不正确！");
+			alert("颜色值非法");
 		}
 		for(i=0;i<document.getElementById("colornum").value;i++)
 		{
@@ -117,15 +117,15 @@ function getcolorbygrey(greynum) {
 </head>
 
 <body>
-<div id="samplegrey">取样颜色灰度</div>
-<div id="samplecolor">当前取样颜色</div>
+<div id="samplegrey">当前灰色</div>
+<div id="samplecolor">当前颜色</div>
 <div id="inputdiv">
-取色数量<input type="text" id="colornum" value="12" /><br />
-输入颜色值<input type="text" id="colorinput" value="#AA88FF" onblur="doget('color');" />
-输入灰度值<input type="text" id="greyinput" value="128" onblur="doget('grey');" />
+产生的颜色数量<input type="text" id="colornum" value="12" /><br />
+原颜色<input type="text" id="colorinput" value="#AA88FF" onblur="doget('color');" />
+原灰度<input type="text" id="greyinput" value="128" onblur="doget('grey');" />
 <div>
 <div id="colordiv">
-不知道这个是干嘛的吧？呵呵。用同一个值取出来的各种颜色，画个QQ头像。<br />当你下线的时候，别人就只能看到取样的灰度了，完全没有图案。
+输入一个颜色或者灰度值以产生同灰度颜色。
 </div>
 </body>
 </html>
