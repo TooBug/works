@@ -12,3 +12,7 @@ QQ2012的灰色算法做了改动（好像并不是完全灰色），因此不�
 
 产生的灰色为RGB(X,X,X)
 
+
+演示地址
+
+[http://www.toobug.net/works/color2grey](http://www.toobug.net/works/color2grey)
