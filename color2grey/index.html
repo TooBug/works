@@ -1,0 +1,131 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>同灰度值颜色工具</title>
+<style>
+#colordiv{
+width:600px;
+margin:20px;
+font-size:12px;
+}
+#colordiv div{
+float:left;
+width:150px;
+height:60px;
+text-align:center;
+font-size:12px;
+line-height:30px;
+}
+#inputdiv{
+clear:both;
+}
+#samplecolor,#samplegrey{
+float:left;
+margin-bottom:10px;
+width:300px;
+height:30px;
+font-size:12px;
+line-height:30px;
+text-align:center;
+}
+</style>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script>
+function doget(type) {
+    var i=0;
+	document.getElementById("colordiv").innerHTML="";
+	if (type=="grey") {
+		greynum = parseInt(document.getElementById("greyinput").value);
+		if (greynum<=0 || greynum>=250) {
+			alert("值非法");
+			return false;
+		}
+		for(i=0;i<document.getElementById("colornum").value;i++)
+			getcolorbygrey();
+	}
+	if (type=="color") {
+		var colorval = document.getElementById("colorinput").value.toUpperCase();
+		//alert(colorval.toUpperCase());
+		if (/^#[0-9A-F]{6}$/.test(colorval)) {
+			document.getElementById("samplecolor").style.backgroundColor=colorval;
+			var colorpart=new Array();
+			for (i = 1; i < 6; i+=2) {
+				colorpart.push(parseInt("0x" + colorval.substr(i,2)));
+			}
+			//alert(colorpart);
+			document.getElementById("samplecolor").style.color="rgb("+(255-colorpart[0])+","+(255-colorpart[1])+","+(255-colorpart[2])+")";
+			greynum = parseInt(0.299*colorpart[0] + 0.587*colorpart[1] + 0.114*colorpart[2]);
+		}
+		else {
+			alert("颜色值不正确！");
+		}
+		for(i=0;i<document.getElementById("colornum").value;i++)
+		{
+			//alert("1");
+			getcolorbygrey(greynum);
+		}
+	}
+}
+
+function getcolor(greynum) {
+	var i=0;
+	var thediv;
+	var tempnum = greynum;
+	var limit=0;
+	var temppart=0;
+	var colorpart = new Array();
+	var partright=new Array(0.299,0.587,0.114);
+	for (i = 0; i < 2; i++) {
+		limit = tempnum/partright[i];
+		if (limit>255) {
+			limit=255;
+		}
+		temppart = parseInt(Math.random()*limit);
+		colorpart.push(temppart);
+		tempnum -= temppart*partright[i];
+	}
+	if (tempnum/0.114>255) {
+		//alert("retry");
+		getcolor(greynum);
+	}
+	else{
+		colorpart.push(parseInt(tempnum/0.114));
+		thediv=document.createElement("div");
+		thediv.style.backgroundColor = "rgb("+colorpart[0]+","+colorpart[1]+","+colorpart[2]+")";
+		thediv.style.Color = "rgb("+(255-colorpart[0])+","+(255-colorpart[1])+","+(255-colorpart[2])+")";
+		thediv.innerHTML="rgb("+colorpart[0]+","+colorpart[1]+","+colorpart[2]+")<br />#"+colorpart[0].toString(16)+colorpart[1].toString(16)+colorpart[2].toString(16);
+		document.getElementById("colordiv").appendChild(thediv);
+	}
+}
+
+function getcolorbygrey(greynum) {
+	//alert("2");
+	if(!greynum)
+	{
+		greynum = parseInt(document.getElementById("greyinput").value);
+		document.getElementById("samplecolor").style.backgroundColor="rgb("+greynum+","+greynum+","+greynum+")";
+		document.getElementById("samplecolor").style.color="rgb("+(255-greynum)+","+(255-greynum)+","+(255-greynum)+")";
+	}
+	document.getElementById("samplegrey").style.backgroundColor="rgb("+greynum+","+greynum+","+greynum+")";
+	document.getElementById("samplegrey").style.color="rgb("+((128+greynum)%255)+","+((128+greynum)%255)+","+((128+greynum)%255)+")";
+	getcolor(greynum);
+}
+
+</script>
+</head>
+
+<body>
+<div id="samplegrey">取样颜色灰度</div>
+<div id="samplecolor">当前取样颜色</div>
+<div id="inputdiv">
+取色数量<input type="text" id="colornum" value="12" /><br />
+输入颜色值<input type="text" id="colorinput" value="#AA88FF" onblur="doget('color');" />
+输入灰度值<input type="text" id="greyinput" value="128" onblur="doget('grey');" />
+<div>
+<div id="colordiv">
+不知道这个是干嘛的吧？呵呵。用同一个值取出来的各种颜色，画个QQ头像。<br />当你下线的时候，别人就只能看到取样的灰度了，完全没有图案。
+</div>
+</body>
+</html>
