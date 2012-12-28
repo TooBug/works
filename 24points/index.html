@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+ 	<title>JavaScript 24点</title>
+	</head>
+<body>
+	数1：<input type="text" /><br />
+	数2：<input type="text" /><br />
+	数3：<input type="text" /><br />
+	数4：<input type="text" /><br />
+	<input type="submit" value="计算" onclick="startcalc();" />
+	<div id="result"></div>
+</body>
+<script language="javascript">
+var n=new Array(0,0,0,0)
+var o=new Array("","","","","","")
+var count=0;
+function check(expression)
+{
+	count++;
+	if (Math.abs(eval(expression)-24)<0.0001)
+	{
+		document.getElementById("result").innerHTML=document.getElementById("result").innerHTML+"第"+count+"次判断，找到有效解："+expression+"<br />";
+	}
+}
+function startcalc()
+{
+	count=0;
+	for (var i=0;i<4;i++)
+	{
+		n[i]=document.getElementsByTagName("input")[i].value;
+	}
+	//全加减和全乘除，类似a+b-c+d
+	for (var i=0;i<2;i++)
+		for (var j=0;j<2;j++)
+			for (var k=0;k<2;k++)
+				for (var l=0;l<2;l++)
+				{
+					//加减
+					o[0]=["","-"][i];
+					o[1]=["+","-"][j];
+					o[2]=["+","-"][k];
+					o[3]=["+","-"][l];
+					if(!(o[0]=="-"&&o[1]=="-"&&o[2]=="-"&&o[3]=="-"))
+						check(o[0]+n[0]+o[1]+n[1]+o[2]+n[2]+o[3]+n[3]);
+					//乘除
+					o[0]=["","1/"][i];
+					o[1]=["*","/"][j];
+					o[2]=["*","/"][k];
+					o[3]=["*","/"][l];
+					if(!(o[0]=="1/"&&o[1]=="/"&&o[2]=="/"&&o[3]=="/"))
+						check(o[0]+n[0]+o[1]+n[1]+o[2]+n[2]+o[3]+n[3]);
+				}
+	//两端乘除中间加减或者两端加减中间乘除，如（6-2）*（8-2）
+	for(var i=1;i<4;i++)
+	{
+		var temparr=new Array(0,0,0,0);
+		temparr=n;
+		var tempnum=temparr[i];
+		temparr[i]=temparr[1];
+		temparr[1]=tempnum;
+		for(var j1=0;j1<2;j1++)
+			for(var j2=0;j2<2;j2++)
+				for(var j3=0;j3<2;j3++)
+					for(var j4=0;j4<2;j4++)
+						for(var j5=0;j5<2;j5++)
+							for(var j6=0;j6<2;j6++)
+							{
+								//先加减后乘除
+								o[0]=["","1/"][j1];
+								o[1]=["","-"][j2];
+								o[2]=["+","-"][j3];
+								o[3]=["*","/"][j4];
+								o[4]=["","-"][j5];
+								o[5]=["+","-"][j6];
+								if(!(o[0]=="1/"&&o[3]=="/") && !(o[1]=="-"&&o[2]=="-") && !(o[4]=="-"&&o[5]=="-"))
+									check(o[0]+"("+o[1]+temparr[0]+o[2]+temparr[1]+")"+o[3]+"("+o[4]+temparr[2]+o[5]+temparr[3]+")");
+								//先乘除后加减
+								o[0]=["","-"][j1];
+								o[1]=["","1/"][j2];
+								o[2]=["*","/"][j3];
+								o[3]=["+","-"][j4];
+								o[4]=["","1/"][j5];
+								o[5]=["*","/"][j6];
+								if(!(o[0]=="-"&&o[3]=="-") && !(o[1]=="1/"&&o[2]=="/") && !(o[4]=="1/"&&o[5]=="/"))
+									check(o[0]+o[1]+temparr[0]+o[2]+temparr[1]+o[3]+o[4]+temparr[2]+o[5]+temparr[3]);
+							}
+	}
+	//两次乘除一次加减或者两次加减一次乘除，如3*4*3-12
+	for(var i=0;i<4;i++)
+	{
+		var temparr=new Array(0,0,0,0);
+		temparr=n;
+		var tempnum=temparr[i];
+		temparr[i]=temparr[3];
+		temparr[3]=tempnum;
+		for(var j1=0;j1<2;j1++)
+			for(var j2=0;j2<2;j2++)
+				for(var j3=0;j3<2;j3++)
+					for(var j4=0;j4<2;j4++)
+						for(var j5=0;j5<2;j5++)
+						{
+							//先加减后乘除
+							o[0]=["","1/"][j1];
+							o[1]=["","-"][j2];
+							o[2]=["+","-"][j3];
+							o[3]=["+","-"][j4];
+							o[4]=["*","/"][j5];
+							if(!(o[1]=="-"&&o[2]=="-"&&o[3]=="-") && !(o[0]=="1/"&&o[4]=="/"))
+								check(o[0]+"("+o[1]+temparr[0]+o[2]+temparr[1]+o[3]+temparr[2]+")"+o[4]+temparr[3]);
+							//先乘除后加减
+							o[0]=["","-"][j1];
+							o[1]=["","1/"][j2];
+							o[2]=["*","/"][j3];
+							o[3]=["*","/"][j4];
+							o[4]=["+","-"][j5];
+							if(!(o[1]=="1/"&&o[2]=="/"&&o[3]=="/") && !(o[0]=="-"&&o[4]=="-"))
+								check(o[0]+o[1]+temparr[0]+o[2]+temparr[1]+o[3]+temparr[2]+o[4]+temparr[3]);
+						}
+	}
+	//alert(count);
+	//至此共判断360次，与预期一样
+	//乘除一次，加减一次，加减乘除一次，或者反过来，如(（3+4）*3)+3
+	for(var i=0;i<4;i++)
+		for(var j=i+1;j<4;j++)
+		{
+			var temparr=new Array(0,0,0,0);
+			temparr=n;
+			var tempnum=temparr[i];
+			temparr[i]=temparr[0];
+			temparr[0]=tempnum;
+			tempnum=temparr[j];
+			temparr[j]=temparr[1];
+			temparr[1]=tempnum;
+			for (var k=2;k<4;k++)
+			{
+				tempnum=temparr[k];
+				temparr[k]=temparr[2]
+				temparr[2]=tempnum;
+				for(var j1=0;j1<2;j1++)
+					for(var j2=0;j2<2;j2++)
+						for(var j3=0;j3<2;j3++)
+							for(var j4=0;j4<2;j4++)
+								for(var j5=0;j5<2;j5++)
+									for(var j6=0;j6<4;j6++)
+									{
+										//先加减后乘除再加减
+										o[0]=["","-"][j1];
+										o[1]=["","1/"][j2];
+										o[2]=["","-"][j3];
+										o[3]=["+","-"][j4];
+										o[4]=["*","/"][j5];
+										o[5]=["+","-","*","/"][j6];
+										if(!(o[2]=="-"&&o[3]=="-")&&!(o[1]=="1/"&&o[4]=="/")&&!(o[0]=="-"&&o[5]=="-"))
+											check(o[0]+"("+o[1]+"("+o[2]+temparr[0]+o[3]+temparr[1]+")"+o[4]+temparr[2]+")"+o[5]+temparr[3]);
+										//先乘除后加减再乘除
+										o[0]=["","1/"][j1];
+										o[1]=["","-"][j2];
+										o[2]=["","1/"][j3];
+										o[3]=["*","/"][j4];
+										o[4]=["+","-"][j5];
+										o[5]=["+","-","*","/"][j6];
+										if(!(o[2]=="1/"&&o[3]=="/")&&!(o[1]=="-"&&o[4]=="-")&&!(o[0]=="1/"&&o[5]=="/"))
+											check(o[0]+"("+o[1]+"("+o[2]+temparr[0]+o[3]+temparr[1]+")"+o[4]+temparr[2]+")"+o[5]+temparr[3]);
+									}
+			}
+	}
+	document.getElementById("result").innerHTML=document.getElementById("result").innerHTML+"共计判断表达式"+count+"次";
+}
+</script>
+</html>
