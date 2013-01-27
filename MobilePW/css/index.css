@@ -1,0 +1,226 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+	-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+	margin:0;
+	padding:0;
+	background: url(../img/bodybg.jpg);
+}
+
+/* Portrait layout (default) */
+.app {
+
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+	.app {
+	   
+	}
+}
+
+.app h1 {
+	height:35px;
+	background:url(../img/top_bg.png) repeat-x;
+	background-image:-webkit-image-set(url(../img/top_bg.png) 1x,url(../img/top_bg_2x.png) 2x);
+	padding: 0;
+	margin: 0;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	line-height: 35px;
+}
+				
+		  
+.app #addwork{
+	background:rgb(249,249,249);
+	padding:15px;
+	/*-webkit-transition:all .5s;*/
+}
+
+.app #addwork h3{
+	
+	font-size:14px;
+	color:rgb(168,84,36);
+	margin:0;
+	padding-bottom:10px;
+
+}
+
+.app #addwork ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.app #addwork li{
+	vertical-align: top;
+	margin-bottom:10px;
+}
+
+.app #addwork textarea{
+	width:92%;
+	padding:10px;
+	height:40px;
+	border:1px solid rgb(170,170,170);
+	color:rgb(170,170,170);
+	border-radius:5px;
+	box-shadow:inset 1px 1px #ccc,inset -1px -1px #ccc;
+	font-size:14px;
+}
+
+.app #addwork #work_load_show{
+	display:inline-block;
+	vertical-align: 10px;
+	width:30px;
+	font-size:12px;
+	font-style: italic;
+}
+
+.app #addwork #work_load_show span{
+	display: inline-block;
+	width:20px;
+	color:rgb(151,191,92);
+}
+
+.app #addwork input[name=work_load]{
+	width:250px;
+
+}
+
+.app #addwork input[type=submit]{
+	
+	width:290px;
+	height:35px;
+	background:-webkit-gradient(linear,left top,left bottom,from(rgb(139,184,44)),to(rgb(80,122,25)));
+	border:1px solid rgb(145,182,105);
+	box-shadow:inset 1px 1px rgb(179,214,109),inset -1px -1px rgb(179,214,109);
+	border-radius:5px;
+	font-size:16px;
+	color:#fff;
+	letter-spacing:1em;
+
+}
+
+.app #addwork.hide{
+
+	height:0;
+
+}
+
+.app #tasklist{
+	margin:0 10px;
+	padding-bottom: 10px;
+	background:url(../img/task_top_bg.jpg) repeat-x;
+	background-color: #fff;
+
+}
+
+.app #tasklist .nav{
+	padding:15px 10px 10px 10px;
+}
+
+.app #tasklist .nav .navbtn{
+	width:23px;
+	height:23px;
+	border:1px solid rgb(220,220,220);
+	border-radius:2px;
+	color:rgb(160,160,160);
+	background:-webkit-gradient(linear,left top,left bottom,from(rgb(252,252,252)),to(rgb(240,240,240)));
+	line-height: 23px;
+	text-align: center;
+}
+.app #tasklist .nav .navbtn.prev{
+	float:left;
+}
+.app #tasklist .nav .navbtn.next{
+	float:right;
+}
+.app #tasklist .nav .dateinfo{
+	width:120px;
+	margin:5px auto 0 auto;
+	font-size:16px;
+	color:rgb(106,150,26);
+}
+.app #tasklist .nav .dateinfo .date{
+	color:rgb(160,160,160);
+	font-size:12px;
+}
+
+.app #my_task_table{
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-left: 1px solid rgb(220,220,220);
+	border-top: 1px solid rgb(220,220,220);
+	margin: 10px;
+	width: 94%;
+}
+.app #my_task_table th,
+.app #my_task_table td{
+	border-right: 1px solid rgb(220,220,220);
+	border-bottom: 1px solid rgb(220,220,220);
+	height:32px;
+	padding:0 10px;
+}
+
+.app #my_task_table .empty{
+	height:2px;
+}
+
+.app #my_task_table th{
+	text-align: left;
+}
+.app #my_task_table th .title{
+	font-size:16px;
+	color:rgb(176,85,30);
+
+}
+.app #my_task_table .work_summary{
+	float:right;
+	font-size: 12px;
+	color:rgb(160,160,160);
+	font-style: italic;
+}
+
+.app #my_task_table .work_summary .work_load{
+	color:rgb(151,191,92);
+}
+.app #my_task_table .task td{
+	color:rgb(67,67,67);
+}
+.app #my_task_table .task .add_work{
+	float:right;
+	display: inline-block;
+	border:1px solid #ccc;
+	width:24px;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.app #my_task_table .work td{
+	padding-left:30px;
+	color:rgb(118,118,118);
+}
