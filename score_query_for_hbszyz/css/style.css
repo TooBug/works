@@ -1,0 +1,131 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:url(../images/bg.jpg);
+	background-size:100% auto;
+	-webkit-perspective:800;
+}
+
+ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+
+#words{
+	position:absolute;
+	left:50%;
+	/*top:50%;*/
+	margin-left:-160px;
+	margin-top:-100px;
+	width:300px;
+	height:150px;
+	padding:30px;
+	background:rgba(255,255,255,.2);
+	box-shadow:0 0 10px 0 rgb(177,206,233);
+	border-radius: 5px;
+	/*-webkit-filter: blur(0.5px);*/
+	font-size:24px;
+	line-height: 36px;
+	/*color:rgb(0,143,255);*/
+	color:rgb(151,151,151);
+	text-shadow:1px 1px #ddd;
+	-webkit-transition:all .5s;
+	-webkit-backface-visibility: hidden;
+}
+
+#words.show{
+	top:300px;
+}
+
+#words.hide{
+
+	-webkit-transform:rotateX(180deg);
+	/*color:rgba(151,151,151,0);*/
+
+}
+
+#words .author{
+	text-align: right;
+}
+
+#words .author::before{
+	content:'——';
+}
+
+#words .action{
+	position:absolute;
+	bottom:30px;
+	right:30px;
+	line-height: 30px;
+	font-size:12px;
+	text-align: right;
+	opacity: 0;
+	-webkit-transition:all .5s;
+}
+#words .action:hover{
+	color:rgb(0,143,255);
+	opacity: 1;
+	cursor: pointer;
+}
+
+
+#login{
+	position:absolute;
+	left:50%;
+	top:300px;
+	margin-left:-160px;
+	margin-top:-100px;
+	width:300px;
+	height:150px;
+	padding:30px;
+	background:rgba(255,255,255,.2);
+	box-shadow:0 0 10px 0 rgb(177,206,233);
+	border-radius: 5px;
+	/*-webkit-filter: blur(0.5px);*/
+	font-size:24px;
+	line-height: 36px;
+	/*color:rgb(0,143,255);*/
+	text-shadow:1px 1px #ddd;
+	color:rgb(151,151,151);
+	-webkit-transition:all .5s;
+	-webkit-transform:rotateX(180deg);
+	/*color:rgba(151,151,151,0);*/
+	-webkit-backface-visibility: hidden;
+}
+
+#login.show{
+	-webkit-transform:rotateX(360deg);
+}
+
+#login li{
+	margin-bottom:20px;
+}
+
+#login li.ctrl{
+	text-align: right;
+}
+
+#login input[type=text]{
+	width:285px;
+	height:30px;
+	border-radius: 5px;
+	padding:5px;
+	font-size:18px;
+	border:1px solid rgba(240,240,240,.6);
+	background:rgba(255,255,255,.2);
+}
+
+#login input[type=submit]{
+	width: 80px;
+	height: 30px;
+	border: 1px solid rgb(107, 203, 248);
+	border-radius: 5px;
+	background: -webkit-gradient(linear,left top,left bottom,from(rgb(147, 215, 253)),to(rgb(132, 187, 223)));
+	box-shadow: inset 1px 1px rgb(146, 215, 248),inset -1px -1px rgb(115, 204, 247);
+	color: rgb(0, 77, 114);
+	text-shadow: 1px 1px rgb(189, 189, 189);
+}
