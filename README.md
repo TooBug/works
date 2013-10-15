@@ -8,4 +8,5 @@
 - 同灰度颜色生成工具（[http://www.toobug.net/works/color2grey](http://www.toobug.net/works/color2grey)）
 - JavaScript 24点游戏求解（[http://www.toobug.net/works/24points](http://www.toobug.net/works/24points)）
 - 二维码生成书签（[http://www.toobug.net/works/qrbookmark](http://www.toobug.net/works/qrbookmark)）
+- 短地址生成书签（[http://www.toobug.net/works/shortenurlbookmark](http://www.toobug.net/works/shortenurlbookmark)）
 

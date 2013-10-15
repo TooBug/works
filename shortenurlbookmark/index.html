@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>短地址生成书签</title>
+</head>
+<body>
+	<p>拖动以下链接到收藏夹即可。你也可以直接点击试试本页面。</p>
+	<p><a href='javascript:~function(){var e=location.href,t="http://113.im/";var r=new XMLHttpRequest;var n=document.createElement("div");n.style.position="fixed";n.style.zIndex="999999999";n.style.right="20px";n.style.top="20px";n.style.padding="20px";n.style.border="1px solid #eee";n.style.background="white";var s="";r.onreadystatechange=function(){if(r.readyState===4){if(r.status==200){var e;try{e=JSON.parse(r.responseText)}catch(t){e={status:0,info:"Parse Error"}}if(e.status===1){s=e.shortUrl}else{s=e.info}}else{s="网络错误"}n.innerHTML=s;document.body.appendChild(n)}};r.open("POST",t,true);r.setRequestHeader("Content-type","application/x-www-form-urlencoded");r.send("url="+e)}();'>短URL</a></p>
+	<p>源码在这里：<a href="https://github.com/TooooBug/works/tree/gh-pages/shortenurlbookmark">https://github.com/TooooBug/works/tree/gh-pages/shortenurlbookmark</a></p>
+</body>
+</html>
