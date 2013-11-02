@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>东方格</title>
+<link rel="stylesheet" href="base.css" type="text/css"/>
+<link rel="stylesheet" href="game.css" type="text/css"/>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="global.js"></script>
+<script type="text/javascript" src="soundmanager2.js"></script>
+<script type="text/javascript" src="game.js"></script>
+
+</head>
+<body>
+2<div id="content_wrapper">
+<div id="content">
+<h1>东方格</h1>
+<div class="game_area">
+<div id="menu_bar">
+<table width="100%">
+<tr><td><a id="btnMenu" href="###">菜单&#9660;</a></td><td>关卡: <span id="stage_span">15x15</span></td><td class="good">得分: <span id="score_span">100</span></td><td class="bad">时间: <span id="used_time_span">0</span></td></tr>
+</table>
+</div>
+<div class="clear"></div>
+<div id="client_area"></div>
+<div id="menu_items">
+<a href="###" id="sound_switch">声音 off</a>
+<a href="###" id="help_item">帮助</a>
+</div>
+<div id="fly_score"></div>
+<div id="paused_tip">
+<h1>暂停</h1>
+<p>按空格恢复</p>
+</div>
+<div id="loser_tip">
+<h1>Loser</h1>
+<p class="final_score"></p>
+<p>按F5 <a href="javascript:location.reload();">刷新</a></p>
+</div>
+<div id="help_tip">
+<h1>帮助</h1>
+<p>
+点击小格子来发现所有隐藏的深色小格。<br>
+行、列旁边的数字序列表示那一行（一列）的深色小格的分布。<br>
+Good Luck!
+</p>
+<p><a href="javascript:help_switch();">点击我恢复</a></p>
+</div>
+<div id="clear_board">
+<h1>关卡 <span id="which_stage">5x5</span> 完成!</h1>
+<p>分数: <span id="stage_score">100</span></p>
+<p>用时: <span id="stage_used_time">280</span></p>
+<p>是分: <span class="final_score">100 - 28 = 72</span></p>
+<p><a href="###" id="goto_next">下一关:<span id="next_stage">6x6</span> &gt;&gt;</a></p>
+</div>
+</div>
+<span id="sound_span"></span><span id="music_span"></span><div id="bgBox"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div id="foot" class="clear">
+</div>
+<!-- #dialogBox begin -->
+<div id="dialogBox" class="profileBox transBorder rounded-corners">
+<div class="title box_title"></div>
+<div class="content box_content"></div>
+<div class="buttons clear">
+<button id="dialog_ok" class="pll_btn">确定</button>&nbsp;<button id="dialog_cancel" class="pll_btn cancel_btn">取消</button>
+</div>
+</div>
+<!-- #dialogBox end -->
+<!-- #infoTip begin -->
+<div id="infoTip" class="round_lower info_tip ie_fixed_top"></div>
+<!-- #infoTip end -->
+</body>
+</html>

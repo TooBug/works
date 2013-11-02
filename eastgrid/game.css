@@ -1,0 +1,57 @@
+.game_area {color:#58f;}
+.game_area span, .game_area a, .game_area td {font-size:24px;line-height:32px}
+.game_area a:link, .game_area a:visited {color:#58f;padding:3px 8px;}
+.good {color:green;}
+.bad {color:red;}
+#menu_bar {text-align:center;}
+#client_area table {background-color:#fff;margin:auto;border-collapse:separate!important;border-spacing:1px;word-break:normal!important;word-wrap:normal}
+#menu_items {border-bottom:solid 1px #09c;background-color:#fff;display:none;position:absolute;}
+#fly_score {font-size:1.5em;background-color:#fff;display:none;position:absolute;}
+#paused_tip {text-align:center;background-color:#fff;display:none;position:absolute;z-index:4}
+#loser_tip {color:red;text-align:center;display:none;position:absolute;z-index:4}
+#help_tip {text-align:center;display:none;position:absolute;z-index:4}
+#clear_board {text-align:center;display:none;position:absolute;z-index:4}
+#clear_board #goto_next {background-color:#16389c;color:white;padding:2px 5px;}
+#client_area td {cursor:pointer;width:35px;height:35px;}
+#client_area .bigtable td {font-size:0.8em;width:25px;height:25px;}
+#menu_items a {display:block;line-height:1.5em;padding:3px 8px;}
+#bgBox {position:absolute;z-index:2;background-color:#fff;}
+
+#client_area td.indicator {background-color:white;}
+#client_area td.wrong {background-color:red;}
+
+#client_area .stg0 td.cell {background-color:#B7D6EB;}
+#client_area .stg0 td.hover {background-color:navy;color:white;}
+
+#client_area .stg1 td.cell {background-color:#B1F0B9;}
+#client_area .stg1 td.hover {background-color:#53ED6F;color:white;}
+
+#client_area .stg2 td.cell {background-color:#98BD8E;}
+#client_area .stg2 td.hover {background-color:lawngreen;color:white;}
+
+#client_area .stg3 td.cell {background-color:#B7D6EB;}
+#client_area .stg3 td.hover {background-color:navy;color:white;}
+
+#client_area .stg4 td.cell {background-color:#E8E295;}
+#client_area .stg4 td.hover {background-color:#FFD700;color:white;}
+
+#client_area .stg5 td.cell {background-color:#F2C2C2;}
+#client_area .stg5 td.hover {background-color:#FA8072;color:white;}
+
+#client_area .stg6 td.cell {background-color:#DED3BF;}
+#client_area .stg6 td.hover {background-color:#D2691E;color:white;}
+
+#client_area .stg7 td.cell {background-color:#DABFDE;}
+#client_area .stg7 td.hover {background-color:#4B0082;color:white;}
+
+#client_area .stg8 td.cell {background-color:#F2D5DA;}
+#client_area .stg8 td.hover {background-color:#800000;color:white;}
+
+#client_area .stg9 td.cell {background-color:#CFE3D8;}
+#client_area .stg9 td.hover {background-color:#20B2AA;color:white;}
+
+#client_area .stg10 td.cell {background-color:#C0C0C0;}
+#client_area .stg10 td.hover {background-color:#000000;color:white;}
+
+#client_area .stg11 td.cell {background-color:#9cf;}
+#client_area .stg11 td.hover {background-color:#16387c;color:white;}

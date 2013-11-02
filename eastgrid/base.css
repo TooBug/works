@@ -1,0 +1,598 @@
+/* global */
+body {
+  background: #eee;
+  margin: 0;
+}
+
+body,
+input,
+textarea
+{
+  font-family: Helvetica,Arial,Sans-Serif;
+  font-size: 11pt;
+}
+
+.h1 {
+    font-family: "Î¢ÈíÑÅºÚ";
+    font-weight: normal;
+    font-size:2em;
+}
+
+.hr {
+    margin:6px 0;
+    clear:both;
+    border:none;
+    border-bottom:solid 1px #eee;
+}
+
+pre {
+    font-family: Consolas;
+    line-height:1.5em;
+}
+
+.ipt_width {
+    width:250px;
+}
+a:link, a:visited {
+    color:#58b;
+    text-decoration:none;
+}
+a, a:active, a:focus { outline:none; }
+a:hover , a.chosen{
+    color:#e51400;
+}
+
+#header a:hover , #header a.chosen{
+    background-color:red;
+}
+
+*:focus  
+{  
+    outline: none;  
+}
+
+.tabmenu {
+    line-height:3em;
+}
+.tabmenu a {
+    padding:5px 1.5em;
+    border-bottom:solid 1px white;
+}
+
+.tabmenu a:hover, .tabmenu  a.tabchosen {
+    color:#e51400;
+    border-bottom:solid 1px #e51400;
+}
+
+.pll_button {
+    background-color:#005eac;
+    border-style:solid;
+    border-color:#B8D4E8 #124680 #124680 #B8D4E8;
+    border-width:1px;
+    color:white;
+    padding:3px 8px;
+    cursor:pointer;
+    *padding:0;
+    line-height:1.5em;
+}
+
+#nav form {
+    display:inline;
+}
+.search_btn {
+    background:url(http://s2.pinglun.la/md/img/search.gif) left center no-repeat;
+    border:none;
+    width:25px;
+    cursor:pointer;
+    text-indent:-999px;
+}
+
+.confirm {
+    background-color:#2980E3;
+    border-color:#D5F5DB #134F1E #134F1E #D5F5DB;
+}
+.cancel {
+    background-color:#FC4444;
+    border-color:#FAD9DF #823435 #823435 #FAD9DF;
+}
+
+.clear {
+    clear:both;
+}
+
+#content_wrapper, #foot, #header {
+    margin:0 auto;
+    width:984px;
+}
+
+#content_wrapper {
+    border:solid 1px #ccc;
+    border-top:none;
+    margin-top:0;
+    background-color:white;
+}
+
+#content {
+    padding:10px;
+}
+
+#header_wrapper {
+    padding-top:23px;
+    background-color:#a51c30;
+}
+
+#header {
+    border:solid 1px #D14343;
+    border-bottom:none;
+    background-color:#e51400;
+    color:white;
+    height:30px;
+}
+
+#search_keyword {
+    border:none;
+    vertical-align:middle;
+}
+#search_button {
+    vertical-align:middle;
+}
+
+#header a:link, #header a:visited {
+    color:white;
+    padding:0 8px 0 8px;
+    line-height:30px;
+}
+
+#header a:hover {
+    background-color:red;
+}
+
+#foot {
+    color:#888;
+    margin-top:0;
+    padding-top:5px;
+    padding-bottom:10px;
+    line-height:2em;
+}
+#foot img {
+    vertical-align:middle;
+}
+/* pager */
+.pager a,.pager b {
+line-height:300%;
+font-size:12px;
+margin:0 7px 0 0;
+padding:0;
+}
+
+#pinglunla_here2 #pll_comment_list {margin-top:0px}
+.pager b {color:#999;}
+.pager a:hover {text-decoration:underline}
+
+/* navigation & search */
+#search_start {cursor:pointer}
+#search_keyword {width:250px;padding:3px 0 0 5px;}
+#nav {
+    clear:both;
+}
+#nav a {
+    margin-right:8px;
+}
+
+#account_menu {
+    position:absolute;
+    display:none;
+    background-color:#e51400;
+    line-height:2em;
+    width:90px;
+}
+
+#logo {
+    background-position:left top;
+    background-repeat: no-repeat;
+    text-indent:-9999px;
+    display:block;
+    float:left;
+    width:178px;
+    line-height:70px;
+}
+
+/* footer part */
+.fl, .fr {
+    float:left;
+}
+.links ul {
+    width:140px;
+    line-height:2em;
+    list-style:none;
+    padding-left:0;
+}
+.foot_links {
+    float:right;
+}
+
+.foot_notes a {
+    color:#888;
+}
+
+#dialogBox {
+    width:450px;
+    position:absolute;
+}
+#dialogBox .content {padding:9px;width:97%;height:auto;}
+#back_to_top {
+    position:fixed;
+    width:38px;
+}
+#back_to_top a:link, #back_to_top a:visited {
+    display:block;
+    line-height:2em;
+    text-align:center;
+}
+#back_to_top a:hover {
+    color:white;
+    background-color:#e51400;
+}
+#infoTip{background-color:#e51400;color:#fff;padding:6px 10px;z-index:5;display:none;}
+.info_tip{position:fixed;}
+/* auth */
+.stupid_auth_box img {border:none;}
+.auth_ {
+    background:white url(http://s2.pinglun.la/md/img/snsicon32.png) left center no-repeat;
+    padding:13px 3px 12px 45px;
+    font-size:9pt;
+}
+.auth_weibo {background-position:0 -115px;}
+.auth_qq{background-position:0 -75px;}
+.auth_qqweibo {background-position:0 -235px;}
+.auth_renren{background-position:0 -195px;}
+.auth_douban {background-position:0 -395px;}
+.auth_baidu {background-position:0 -155px;}
+.auth_taobao {background-position:0 -555px;}
+.auth_kaixin {background-position:0 -275px;}
+.auth_google {background-position:0 -635px;}
+.auth_neteaseweibo {background-position:0 -715px;}
+
+/* signup */
+#plain_user_signup {
+    text-align:center;
+    padding-top:200px;
+    line-height:3em;
+    height:900px;
+}
+#webmaster_signup {
+    text-align:center;
+    line-height:3em;
+    padding-top:150px;
+    height:1200px;
+}
+#site_intro {
+    vertical-align:top;
+}
+.time_tunnel {
+    height:5000px;
+    background:white url('http://s2.pinglun.la/md/img/numbers.jpg');
+}
+/* ~ */
+/* user guide */
+.user_guide {
+    background:white url(http://s2.pinglun.la/md/img/pills.png) center 210px no-repeat;
+    padding-top:220px;
+    height:650px;
+}
+.ug_inner {
+    margin:100px auto 0 auto;
+    width:420px;
+}
+.user_guide .ug_user {
+    float:left;
+    width:160px;
+    height:180px;
+    *padding-top:100px;
+}
+.user_guide .ug_webmaster {
+    text-align:right;
+    float:right;
+    height:180px;
+    width:160px;
+    *padding-top:100px;
+}
+
+/* index layout */
+#comment_ballons {
+    height:230px;
+}
+.index_links{
+    *line-height:250%;
+}
+/* profile-box-style box */
+.rounded-corners {-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border: 0;}
+.transBorder {
+-moz-background-clip: padding;     /* Firefox 3.6 */
+-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+.profileBox {border:solid 5px rgba(0,0,0,0.15)!important;border:solid 5px #aaa;background-color:white;width:680px;text-align:left;color:#636363;display:none;position:absolute!important;z-index:99;}
+.profileBox .box_title {padding: 5px;}
+.profileBox .box_title img.bt_portrait {padding:3px;background-color:white;float:left;width:50px;height:50px;}
+.profileBox .box_title .bt_stat {margin-left:60px;}
+.profileBox .box_title img.bt_icon {margin-top:-9px;float:none}
+.profileBox .box_title .bt_name {font-size:1.2em;font-weight:bold;font-family: "Microsoft Yahei","Î¢ÈíÑÅºÚ",Tahoma,Arial,Helvetica,STHeiti!important;}
+.profileBox .box_title img.bt_icon {vertical-align:middle;}
+
+.profileBox .close_pb {float:right;margin-right:3px;margin-top:6px;position:absolute;right:10px;}
+.profileBox .close_pb img {border:none;margin:1px -7px 0 0}
+.profileBox .box_content {padding:9px;width:97%;height:310px;overflow:auto;}
+
+/* comment ballons */
+.single_ballon {
+    display:none;
+    position:absolute;
+    font-size:9pt;
+    z-index:9;
+}
+.single_ballon a:link, .single_ballon a:visited {
+    color:black;
+}
+.sb_ballon{
+    background:url(http://s2.pinglun.la/md/img/speech_ballon.jpg) left top no-repeat;
+    border:solid 1px #fff;
+}
+.sb_time {
+    color:#ccc;
+}
+.sb_portrait img {
+    border:none;
+}
+.sb_yellow {
+    background-position:-74px 0px;
+    width:180px;
+    height:175px;
+}
+.sb_yellow_inner {
+    margin-left:38px;
+    margin-top:32px;
+    width:120px;
+    height:78px;
+    overflow:hidden;
+}
+.sb_yellow_portrait{
+    margin-left:55px;
+}
+
+.sb_brown {
+    background-position:-254px -333px;
+    width:180px;
+    height:165px;
+}
+.sb_brown_inner {
+    margin-left:38px;
+    margin-top:32px;
+    width:120px;
+    height:92px;
+    overflow:hidden;
+}
+
+.sb_maroon {
+    background-position:-256px 0px;
+    width:180px;
+    height:175px;
+}
+.sb_maroon_inner {
+    margin-left:38px;
+    margin-top:32px;
+    width:120px;
+    height:92px;
+    overflow:hidden;
+}
+
+.sb_blue {
+    background-position:-74px -340px;
+    width:180px;
+    height:160px;
+}
+.sb_blue_inner {
+    margin-left:30px;
+    margin-top:32px;
+    width:126px;
+    height:76px;
+    overflow:hidden;
+}
+.sb_blue_portrait{
+    margin-left:25px;
+}
+
+
+.sb_green {
+    background-position:-240px -175px;
+    width:190px;
+    height:160px;
+}
+.sb_green_inner {
+    margin-left:33px;
+    margin-top:28px;
+    width:126px;
+    height:76px;
+    overflow:hidden;
+}
+.sb_green_portrait{
+    margin-left:110px;
+}
+
+.sb_purple {
+    background-position:-74px -170px;
+    width:170px;
+    height:175px;
+}
+.sb_purple_inner {
+    margin-left:25px;
+    margin-top:32px;
+    width:120px;
+    height:92px;
+    overflow:hidden;
+}
+.sb_purple_portrait{
+    margin-left:115px;
+}
+
+
+
+/* hr_* */
+.hr_visitor {
+    font-size:9pt;
+    float:left;
+    width:52px;
+    height:75px;
+    overflow:hidden;
+}
+.hr_visitor span {
+    color:#aaa;
+    font-size:9pt;
+}
+.hr_visitor a img {
+    border:none;
+    width:40px;
+    height:40px;
+}
+.hr_visitor a {
+    display:block;
+}
+.hr_visitor a.visitor_name {
+    height:11pt;
+    overflow:hidden;
+}
+
+.load_more_paginator, #updates_paginator {
+    clear:both;
+    text-align:center;
+    line-height:2em;
+    color:#ccc;
+}
+
+#pll_more_updates {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+background: #fafafa url(http://s2.pinglun.la/md/img/pll_more_comments.png) repeat-x top left;
+border: 1px solid #e2e2e2;
+border-bottom: 1px solid #ccc;
+cursor: pointer;
+font-size: 12px;
+text-align: center;
+text-shadow: 1px 1px #FFF;
+padding: 5px 0;
+width: 100%;
+clear: both;
+margin: 10px 0;
+line-height:12px;
+color:#888;
+}
+#pll_more_updates:hover{border-color:#ccc;border-bottom:1px solid #aaa;text-decoration:none;}
+#pll_more_updates a {color:#555!important;font-size: .9em;font-weight:bold!important;}
+
+.su_b_comment_list {
+    margin-top:10px;
+}
+.su_b_comment_list .home_reply {
+    margin-top:6px;
+}
+.su_b_make_comment {
+    margin-top:8px;
+}
+
+.su_b .ipt_disabled {
+    background-color:#ccc;
+}
+.su_b_make_comment  .ipt_focus  {
+    border:solid 1px #aaa;
+    color:black;
+}
+.su_b_make_comment input {
+    border:solid 1px #eee;
+    color:#ccc;
+    width:99%;
+}
+
+.su_b a.aux_button {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 150%;
+    color:#999;
+    padding-left:14px;
+}
+.su_b_aux_buttons {
+    color:#ccc;
+    font-size:9pt;
+}
+.su_b_aux_buttons button {
+    float:right;
+    margin-right:6px;
+}
+
+.su_b a.facial_expression {
+    background:url(http://s2.pinglun.la/md/img/pll_poster.png) no-repeat 0 -2px;
+    *background:url(http://s2.pinglun.la/md/img/pll_poster.png) no-repeat 0 -4px;
+}
+
+.su_b a.at_somebody {
+    background:url(http://s2.pinglun.la/md/img/pll_poster.png) no-repeat 0 -121px;
+    *background:url(http://s2.pinglun.la/md/img/pll_poster.png) no-repeat 0 -123px;
+}
+
+.simple_box {
+    display:none;
+    background-color:#fff;
+    z-index:99;
+    width:340px;
+    padding:5px;
+    border:1px #e2e2e2 solid;
+    position:absolute;
+    border-radius:3px;
+}
+
+.simple_box_tip {
+    font-size:9pt;
+    padding:3px;
+}
+
+.pll_facial_expression_box img {padding:2px;cursor:pointer;}
+
+#pll_as_box {
+    width:190px;
+    height:250px;
+}
+#pll_as_box .as_item {
+    clear:both;
+    margin-top:2px;
+    cursor:pointer;
+}
+#pll_as_box .as_item img {
+    float:left;
+    width:30px;
+    height:30px;
+}
+#pll_as_box .asi_text {
+    margin-left:40px;
+    line-height:30px;
+}
+#pll_as_box .asi_hover {
+    background-color:#09c;
+    color:white;
+}
+.home_reply {
+    font-size:9pt;
+}
+
+.home_reply .home_reply_portrait {
+    float:left;
+    width:30px;
+    height:30px;
+}
+
+.home_reply .home_reply_r {
+    margin-left:36px;
+}
+
+.home_reply .home_reply_time {
+    color:#ccc;
+}
+/* ~ */
