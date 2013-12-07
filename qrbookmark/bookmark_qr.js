@@ -5,6 +5,7 @@
 	var img = new Image();
 	img.src=imgurl;
 	img.style.position='fixed';
+	img.style.zIndex=9999;
 	img.style.right='20px';
 	img.style.top='20px';
 	img.style.border='1px solid #ccc';
